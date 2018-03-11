@@ -58,7 +58,6 @@ wp-includes/
 wp-admin/
 languages/
 plugins/
-themes/
 
 # WP files
 .htaccess
