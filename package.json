@@ -1,0 +1,11 @@
+{
+  "name": "kikonia-wp",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "normalize.css": "^8.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
