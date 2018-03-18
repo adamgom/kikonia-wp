@@ -1,2 +1,2 @@
-var gulp = require('gulp');
-
+require('./app/assets/gulp/tasks/styles');
+require('./app/assets/gulp/tasks/watch');

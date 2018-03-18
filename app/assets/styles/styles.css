@@ -1,0 +1,7 @@
+/* Globals elements */
+@import "normalize.css";
+@import "globals/_global";
+@import "globals/_variables";
+
+/* Modules */
+@import "modules/_hero";
