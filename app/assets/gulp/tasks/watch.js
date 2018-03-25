@@ -5,12 +5,17 @@ var gulp      = require ('gulp'),
 gulp.task('w', function(){
 
   browserS.init({
-    server: {
-      baseDir: "./app"
-    }
+    proxy: 'http://localhost/kikonia-wp/app/',
+    // server: {
+    //   baseDir: "./app"
+    // }
   });
 
-  watcher('./app/index.html', function(){
+  // watcher('./app/index.html', function(){
+  //   browserS.reload();
+  // });
+
+  watcher('./app/wp-content/themes/kikonia/**/*.php', function(){
     browserS.reload();
   });
 
@@ -20,8 +25,7 @@ gulp.task('w', function(){
 
 });
 
-
 gulp.task('cssInject', ['styles'], function() {
-  return gulp.src('./app/wp-content/themes/kikonia/styles/styles.css')
+  return gulp.src('./app/wp-content/themes/kikonia/style.css')
     .pipe(browserS.stream());
 });

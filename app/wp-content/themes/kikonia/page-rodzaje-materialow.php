@@ -1,12 +1,6 @@
-  <?php get_header(); ?>
+<?php get_header(); ?>
   <?php
-    the_title();
-    echo "</br>";
-    pageBanner(array(
-      'title' => 'Tytół w ramach array - Home Page',
-      'subtitle' => 'podtytuł w ramach array - Home Page'
-    ));
-
+    echo "Page temlpate";
     while (have_posts()) {
       the_post();
   ?>

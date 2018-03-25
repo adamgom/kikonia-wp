@@ -1,3 +1,7 @@
+@import "globals/_wp-header.css";
+/* WP CSS Header (above) */
+
+
 /* Globals elements */
 @import "normalize.css";
 @import "globals/_global";
@@ -5,3 +9,4 @@
 
 /* Modules */
 @import "modules/_hero";
+@import "modules/_basic";

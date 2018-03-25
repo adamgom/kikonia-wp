@@ -7,7 +7,7 @@ var gulp      = require ('gulp'),
     cssMin    = require ('gulp-cssmin');
 
 gulp.task('styles', function() {
-  return gulp.src('./app/assets/styles/styles.css')
+  return gulp.src('./app/assets/styles/style.css')
     .pipe(postcss([
       importCSS,
       cssvars,
@@ -15,5 +15,5 @@ gulp.task('styles', function() {
       autopref,
     ]))
     .pipe(cssMin())
-    .pipe(gulp.dest('./app/wp-content/themes/kikonia/styles'));
+    .pipe(gulp.dest('./app/wp-content/themes/kikonia'));
 });
