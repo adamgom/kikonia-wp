@@ -29,6 +29,40 @@
 
   add_action( 'after_setup_theme', 'kikonia_features' );
 
+  // add_filter('manage_produkty_posts_columns', 'custom_table_header');
+  
+  // function custom_table_header($columns) {
+  //     $columns['product_group']  = 'Grupa';
+  //     $columns['zdj_base']    = 'Zdjęcie';
+  //     return $columns;
+  // }
 
+  // add_action( 'manage_produkty_posts_custom_column', 'custom_table_content', 10, 2 );
+
+  // function custom_table_content( $column, $post_id ) {
+  //     if ($column == 'product_group') {
+  //       $grupa = get_post_meta( $post_id, '_grupa', true );
+  //       echo $grupa;
+  //     }
+  //     if ($column == 'zdj_base') {
+  //       $zdj = get_post_meta( $post_id, '_zdj', true );
+  //       echo $zdj;
+  //     }
+  // }
+
+  // function custom_table_content( $column_name, $post_id ) {
+  //   if ($column_name == 'event_date') {
+  //   $event_date = get_post_meta( $post_id, '_bs_meta_event_date', true );
+  //     echo  date( _x( 'F d, Y', 'Event date format', 'textdomain' ), strtotime( $event_date ) );
+  //   }
+  //   if ($column_name == 'ticket_status') {
+  //   $status = get_post_meta( $post_id, '_bs_meta_event_ticket_status', true );
+  //   echo $status;
+  //   }
+
+  //   if ($column_name == 'venue') {
+  //   echo get_post_meta( $post_id, '_bs_meta_event_venue', true );
+  //   }
+  // }
 
 ?>

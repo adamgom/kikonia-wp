@@ -1,0 +1,36 @@
+@define-mixin clearfix {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+@define-mixin __list-item {
+  &__list-item {
+    padding: 2px;
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 150px;
+    margin-bottom: 4px;
+    padding: 5px;
+  }
+}
+
+@define-mixin atSmall {
+  @media (min-width: 530px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atMedium {
+  @media (min-width: 800px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atLarge {
+  @media (min-width: 1200px) {
+    @mixin-content;
+  }
+}

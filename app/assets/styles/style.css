@@ -1,12 +1,19 @@
+/* WP CSS Header */
 @import "globals/_wp-header.css";
-/* WP CSS Header (above) */
-
 
 /* Globals elements */
 @import "normalize.css";
 @import "globals/_global";
 @import "globals/_variables";
 
+/* reusable blocks */
+@import "blocks/_wrapper";
+@import "blocks/_mixins";
+
 /* Modules */
-@import "modules/_hero";
 @import "modules/_basic";
+@import "modules/_menu";
+@import "modules/_row";
+@import "modules/_header";
+@import "modules/_content";
+@import "modules/_footer";

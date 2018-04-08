@@ -1,0 +1,7 @@
+.content {
+  width: 80%;
+  margin: 0 auto;
+  background-color: rgb(216, 176, 216);
+
+  @mixin __list-item;
+}

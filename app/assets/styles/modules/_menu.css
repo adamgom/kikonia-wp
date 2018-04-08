@@ -1,0 +1,9 @@
+.menu {
+  text-align: center;
+
+  @mixin __list-item;
+
+  &__list-item {
+    display: inline;
+  } 
+}

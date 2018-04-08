@@ -19,6 +19,10 @@ gulp.task('w', function(){
     browserS.reload();
   });
 
+  watcher('./app/wp-content/mu-plugins/**/*.php', function(){
+    browserS.reload();
+  });
+
   watcher('./app/assets/styles/**/*.css', function() {
     gulp.start('cssInject');
   });

@@ -53,6 +53,9 @@ nbproject
 _notes
 dwsync.xml
 
+# WP assete
+uploads/
+
 # WP folders
 wp-includes/
 wp-admin/
