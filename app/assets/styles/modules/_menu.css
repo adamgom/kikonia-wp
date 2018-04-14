@@ -1,8 +1,17 @@
 .menu {
   text-align: center;
 
-  @mixin __list-item;
+  &__list-item {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding: 0 5px;
+  }
 
+  &__list-group {
+    list-style-type: none;
+    padding-left: 0;
+  } 
+  
   &__list-item {
     display: inline;
   } 

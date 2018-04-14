@@ -33,13 +33,12 @@
       'show_in_menu' => true,
       'show_in_nav_menus' => true,
       'supports' => array(
-        'custom-fields',
-        'post-formats'
+        'post-formats', 'title'
       )
     ));
 
     // remove_post_type_support('produkty', 'title');
-    remove_post_type_support('produkty', 'editor');
+    // remove_post_type_support('produkty', 'editor');
 
   }
 

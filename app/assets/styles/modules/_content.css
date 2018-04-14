@@ -2,6 +2,48 @@
   width: 80%;
   margin: 0 auto;
   background-color: rgb(216, 176, 216);
+  color: red;
 
-  @mixin __list-item;
+  &__list-group {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  &__list-item {
+    /* padding: 2px; */
+    /* border: 1px solid black; */
+    /* border-radius: 10px; */
+    /* padding: 5px; */
+    padding-bottom: 15px;
+    /* margin-bottom: 4px; */
+    /* padding: 5px; */
+    color: green;
+    display: inline-block;
+    position: relative;
+
+    &-link {
+
+    }
+
+    &-title {
+      position: absolute;
+      background-color: grey;
+      color: orange;
+      transform: translateX(-50%);
+      border-radius: 0 0 10px 10px;
+      width: 100%;
+      padding: 2px 0;
+      /* margin: 5px; */
+    }
+
+    &-img {
+      /* padding-top: 20px;
+      margin-top: 20px; */
+      width: 80px;
+      display: block;
+      border-radius: 10px 10px 0 0;
+    }
+  }
+
+
 }

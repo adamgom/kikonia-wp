@@ -6,7 +6,7 @@
   }
 }
 
-@define-mixin __list-item {
+/* @define-mixin __list-item {
   &__list-item {
     padding: 2px;
     border: 1px solid black;
@@ -14,8 +14,9 @@
     width: 150px;
     margin-bottom: 4px;
     padding: 5px;
+    color: green;
   }
-}
+} */
 
 @define-mixin atSmall {
   @media (min-width: 530px) {
