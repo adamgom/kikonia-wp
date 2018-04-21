@@ -27,9 +27,16 @@ gulp.task('w', function(){
     gulp.start('cssInject');
   });
 
+  watcher('./app/assets/scripts/**/*.js', function() {
+    gulp.start('jsRefresh');
+  });
 });
 
 gulp.task('cssInject', ['styles'], function() {
   return gulp.src('./app/wp-content/themes/kikonia/style.css')
     .pipe(browserS.stream());
+});
+
+gulp.task('jsRefresh', ['js'], function() {
+  browserS.reload();
 });

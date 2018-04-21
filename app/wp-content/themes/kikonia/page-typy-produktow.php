@@ -59,7 +59,7 @@
     echo '<div class="content__list-group">';
     while ($select->have_posts()) {
       $select->the_post();
-      print_r ($select);
+      // print_r ($select);
 
       $image2 = get_field('zdj_base');
 ?>
