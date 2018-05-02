@@ -10,7 +10,8 @@
         'name' => 'Grupy produktów',
         'add_new_item' => 'Dodaj nową grupę produktową'
       ),
-      'menu_icon' => 'dashicons-feedback'
+      'menu_icon' => 'dashicons-feedback',
+      'show_in_rest' => true
     ));
 
     register_post_type( 'rodzaje_materialow', array(
@@ -24,6 +25,7 @@
 
     register_post_type( 'produkty', array(
       'public' => true,
+      'post_per_page' => -1,
       'labels' => array(
         'name' => 'Produkty',
         'add_new_item' => 'Dodaj nowy produkt'
@@ -34,7 +36,8 @@
       'show_in_nav_menus' => true,
       'supports' => array(
         'post-formats', 'title'
-      )
+      ),
+      'show_in_rest' => true
     ));
 
     // remove_post_type_support('produkty', 'title');

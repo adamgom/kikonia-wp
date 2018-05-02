@@ -1,23 +1,16 @@
 <?php
-  
-  function pageBanner($args = NULL) {
-    if (!$args['title']) {
-      $args['title'] = "Standardowy tytół";
-    }
+  require get_theme_file_path('/inc/search-route.php');
+  require get_theme_file_path('/inc/page-banner.php');
 
-    if (!$args['subtitle']) {
-      $args['subtitle'] = "Standardowy podtytół";
-    }
-
-    echo "Page Banner: " . $args['title'];
-    echo "</br>";
-    echo "Subtitle: " . $args['subtitle'];
-  }
+  // function custom_rest_api() {
+  // }
+  // add_action( 'rest_api_init', 'custom_rest_api');
 
   function kikonia_files() {
     // wp_enqueue_style('styles', get_theme_file_uri('/styles/styles.css'), NULL, '1.0', true);
     wp_enqueue_style('styles', get_stylesheet_uri('/style.css'), NULL, microtime());
-    wp_enqueue_script( 'js', get_theme_file_uri('/scripts.js'), NULL, microtime());
+    wp_enqueue_script( 'js', get_theme_file_uri('/scripts.js'), array('jquery'), microtime(), true);
+    // wp_enqueue_script( 'js', get_theme_file_uri('/scripts.js'), NULL, microtime(), true);
   }
 
   add_action('wp_enqueue_scripts', 'kikonia_files');

@@ -27,9 +27,13 @@ gulp.task('w', function(){
     gulp.start('cssInject');
   });
 
-  watcher('./app/assets/scripts/**/*.js', function() {
-    gulp.start('jsRefresh');
+  // watcher('./app/assets/scripts/**/*.js', function() {
+  //   gulp.start('jsRefresh');
+  // });
+  watcher('./app/wp-content/themes/kikonia/**/*.js', function(){
+    browserS.reload();
   });
+
 });
 
 gulp.task('cssInject', ['styles'], function() {
@@ -37,6 +41,10 @@ gulp.task('cssInject', ['styles'], function() {
     .pipe(browserS.stream());
 });
 
-gulp.task('jsRefresh', ['js'], function() {
+// gulp.task('jsRefresh', ['js'], function() {
+//   browserS.reload();
+// });
+
+gulp.task('jsRefresh', function() {
   browserS.reload();
 });

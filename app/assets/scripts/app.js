@@ -1,6 +1,17 @@
-// var  $ = require('jquery');
+// var $ = require('jquery');
 require('./modules/test');
+require('./modules/search');
 
-alert('webpack automation 10');
+function selektor() {
+  console.log('hi');
+}
 
-// $(".main").remove();
+// var Person = require('./modules/Person');
+
+// var adam = new Person("Adam");
+// adam.spelling();
+
+// alert('webpack automation 10');
+
+// $("h1").remove();
+
