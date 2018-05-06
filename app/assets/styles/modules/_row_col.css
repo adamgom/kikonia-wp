@@ -1,0 +1,70 @@
+.row{
+  margin-bottom: 25px;
+  
+  @mixin clearfix;
+
+  &__1 {
+    float: left;
+    width: 8%;
+  }
+
+  &__2 {
+    float: left;
+    width: 16%;
+  }
+
+  &__4 {
+    float: left;
+    width: 33%;
+  }
+
+  &__8 {
+    float: left;
+    width: 66%;
+  }
+
+  &__10 {
+    float: left;
+    width: 84%;
+  }
+
+  &__11 {
+    float: left;
+    width: 92%;
+  }
+}
+
+.col {
+
+  @mixin clearfix;
+  
+  &__1 {
+    float: left;
+    width: 8%;
+  }
+
+  &__2 {
+    float: left;
+    width: 16%;
+  }
+
+  &__4 {
+    float: left;
+    width: 33%;
+  }
+
+  &__8 {
+    float: left;
+    width: 66%;
+  }
+
+  &__10 {
+    float: left;
+    width: 84%;
+  }
+
+  &__11 {
+    float: left;
+    width: 92%;
+  }
+}

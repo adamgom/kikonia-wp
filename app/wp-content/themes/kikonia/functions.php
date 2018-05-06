@@ -10,6 +10,7 @@
     // wp_enqueue_style('styles', get_theme_file_uri('/styles/styles.css'), NULL, '1.0', true);
     wp_enqueue_style('styles', get_stylesheet_uri('/style.css'), NULL, microtime());
     wp_enqueue_script( 'js', get_theme_file_uri('/scripts.js'), array('jquery'), microtime(), true);
+    wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
     // wp_enqueue_script( 'js', get_theme_file_uri('/scripts.js'), NULL, microtime(), true);
   }
 

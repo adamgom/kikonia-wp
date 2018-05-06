@@ -11,10 +11,10 @@
 @import "blocks/_mixins";
 
 /* Modules */
-@import "modules/_basic";
-@import "modules/_menu";
-@import "modules/_row";
-@import "modules/_header";
 @import "modules/_content";
 @import "modules/_footer";
+@import "modules/_header";
+@import "modules/_menu";
+@import "modules/_row_col";
+@import "modules/_search";
 @import "modules/_select";

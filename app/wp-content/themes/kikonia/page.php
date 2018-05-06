@@ -1,6 +1,6 @@
 <?php get_header(); ?>
   <?php
-    echo "Page temlpate";
+    echo "Formatka stron";
     while (have_posts()) {
       the_post();
   ?>

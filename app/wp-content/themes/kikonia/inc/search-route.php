@@ -38,8 +38,9 @@
         'id_produktu' => get_the_id(),
         'grupa_produktowa_ID' => $grupa_produktowa[0]->ID,
         'grupa_produktowa_nazwa' => $grupa_produktowa[0]->post_name,
-        'img' => $image['sizes']['productSmall']
-        // 'img_sizes' => $image['sizes']
+        // 'img' => $image['sizes']['productSmall'],
+        // 'img_basic' => $image['sizes']['productBasic'],
+        'sizes' => $image['sizes']
         // 'img_total' => $image
         // 'grupa_produktowa-total' => $grupa_produktowa[0]
       ));

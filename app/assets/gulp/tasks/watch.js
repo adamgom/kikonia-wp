@@ -41,9 +41,9 @@ gulp.task('cssInject', ['styles'], function() {
     .pipe(browserS.stream());
 });
 
-// gulp.task('jsRefresh', ['js'], function() {
-//   browserS.reload();
-// });
+gulp.task('jsRefresh', ['js'], function() {
+  browserS.reload();
+});
 
 gulp.task('jsRefresh', function() {
   browserS.reload();

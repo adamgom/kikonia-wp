@@ -1,32 +1,38 @@
 // zmienne globalne
-// var n = $('.content__list-group').children('div').length;
-var daneJSON = [];
-var daneJSON_filtr = [];
-var wRzedzie = 4;
+var $ = jQuery;
+var showProducts = $(".showProducts");
+var opd = $(".openProductDetails");
+var spd = $(".showProductDetails");
+var JSONdata = [];
+var JSONdata_filter = [];
+var inRow = 4;
+
+brakDanych('wczytywanie danych');
 
 // pobrani danych JSON
-jQuery.getJSON('http://localhost/kikonia-wp/app/wp-json/kikonia/produkty', function(data) {
-  this.daneJSON = data;
-  this.wyswietlDane(this.daneJSON);
+$.getJSON('http://localhost/kikonia-wp/app/wp-json/kikonia/produkty', function(data) {
+  this.JSONdata = data;
+  this.JSONdata_filter = data;
+  this.productsShow(this.JSONdata);
 }.bind(this));
 
-// filtrowanie danych zgodnie z wyborem
+// filterowanie danych zgodnie z wyborem
 function selektor(IDcatch) {
-  this.daneJSON_filtr = [];
-  for (var i=0; i < this.daneJSON.length; i++) {
-    if (this.daneJSON[i].grupa_produktowa_ID == IDcatch) { this.daneJSON_filtr.push(this.daneJSON[i]); }
+  this.JSONdata_filter = [];
+  for (var i=0; i < this.JSONdata.length; i++) {
+    if (this.JSONdata[i].grupa_produktowa_ID == IDcatch) { this.JSONdata_filter.push(this.JSONdata[i]); }
   }
   
-  if (daneJSON_filtr.length > 0 ) { this.wyswietlDane(this.daneJSON_filtr); } else { this.brakDanych(); }
+  if (JSONdata_filter.length > 0 ) { this.productsShow(this.JSONdata_filter); } else { this.brakDanych('brak danych'); }
 }
 
 // brak danych
-function brakDanych() {
-  jQuery(".pokaz").html(`
-    <div class="content__list-group">
-      <a class="content__list-item-link" href="#">  
-        <div class="content__list-item">
-           <h1> brak danych </h1>
+function brakDanych(info) {
+  this.showProducts.html(`
+    <div class="content__type-group">
+      <a class="content__type-item-link" href="#">  
+        <div class="content__type-item">
+           <h1> ${info} </h1>
         </div>
       </a>
     </div>
@@ -34,39 +40,55 @@ function brakDanych() {
 }
 
 // wywietlanie danych
-function wyswietlDane(dane) {
-  var tresc = '';
-  var licznikWRzedzie = 0;
-  var interwal = 0;
-  var l = 0;
-  var rzedy = 0;
-  var reszta = 0;
+function productsShow(dane) {
+  var matter = '';
+  var counterInRow = 0;
+  var interval = 0;
+  var productNumber = 0;
+  var rows = 0;
+  var rest = 0;
 
-  l = dane.length;
-  rzedy = Math.floor(l / this.wRzedzie);
+  productNumber = dane.length;
+  rows = Math.floor(productNumber / this.inRow);
 
-  if (rzedy > 0) {reszta = l - rzedy * this.wRzedzie;} else {reszta = l;}
-  if (rzedy > 0) {interwal = this.wRzedzie;} else {interwal = reszta;}
+  if (rows > 0) {
+    rest = productNumber - rows * this.inRow;
+    interval = this.inRow;
+  } else {
+    rest = productNumber;
+    interval = productNumber;
+  }
 
-  var header = '<div class="content__list-group"><div class="row">';
-
-  for (var i = 0 ; i < rzedy + 1 ; i++) {
-    for (var j = licznikWRzedzie ; j < licznikWRzedzie + interwal ; j++ ) {
-      tresc += `
-      <a class="content content__list-item-link" href="#">  
-        <div class="content__list-item">
-          <img class="content__list-item-img" src="` + dane[j].img + `" alt="">
-          <span class="content__list-item-title">`  + dane[j].id_produktu + ',' + dane[j].tytul +  `</span>
-        </div>
-      </a>` 
+  for (var i = 0 ; i < rows + 1 ; i++) {
+    for (var j = counterInRow ; j < counterInRow + interval ; j++ ) {
+      matter += `
+      <div onclick="openProductDetails(` + dane[j].id_produktu + `)" class="content__type-item">
+        <img class="content__type-item-img" src="` + dane[j].sizes.productSmall + `" alt="">
+        <span class="content__type-item-title">` + dane[j].tytul +  `</span>
+      </div>` 
     }
 
-    licznikWRzedzie += this.wRzedzie;
-    if (licznikWRzedzie + interwal> l) {interwal = reszta;}
-    if (i < rzedy) {tresc += '</div><div class="row">';}
+    counterInRow += this.inRow;
+    if (counterInRow + interval > productNumber) {interval = rest;}
+    if (i < rows) {matter += '</div><div class="row">';}
   }
-  
-  var footer = '</div></div>';
 
-  jQuery(".pokaz").html(header + tresc + footer);
+  this.showProducts.html(' <div class="content__type-group"><div class="row">' + matter + '</div></div> ');
+}
+
+function openProductDetails(ID) {
+  var selectedProduct;
+
+  for (var i = 0 ; i < this.JSONdata_filter.length ; i++ ) {
+    if (JSONdata_filter[i].id_produktu == ID) {
+      selectedProduct = this.JSONdata_filter[i];
+    }
+  }
+
+  this.opd.addClass("search-overlay--active");
+  this.spd.html(`<h1> ${selectedProduct.tytul} </h1><img src="  ${selectedProduct.sizes.large} " alt=""> `);
+}
+
+function closeProductDetails() {
+  this.opd.removeClass("search-overlay--active");
 }

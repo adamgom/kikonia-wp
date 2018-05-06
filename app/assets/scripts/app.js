@@ -2,9 +2,9 @@
 require('./modules/test');
 require('./modules/search');
 
-function selektor() {
-  console.log('hi');
-}
+// function selektor() {
+//   console.log('hi');
+// }
 
 // var Person = require('./modules/Person');
 

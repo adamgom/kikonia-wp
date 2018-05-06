@@ -3,6 +3,13 @@ body {
   color: orange;
 }
 
+.content {
+  width: 80%;
+  margin: 0 auto;
+  background-color: rgb(216, 176, 216);
+  color: red;
+}
+
 img {
   max-width: 100%;
   height: auto;
