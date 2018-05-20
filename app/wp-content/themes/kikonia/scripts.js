@@ -123,6 +123,7 @@ function productDetail(sp) {
         alt="">
     `;
   }
+  
 
   function imageFull(full) {
     matter += `<img src=" ${full} " alt="">`;
