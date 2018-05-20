@@ -31,7 +31,9 @@
     while($produkty->have_posts()) {
       $produkty->the_post();
       $grupa_produktowa = get_field('product_group');
-      $image = get_field('zdj_base');
+      $image1 = get_field('zdj_base');
+      $image2 = get_field('zdj_2');
+      $image3 = get_field('zdj_3');
       array_push($produktyWyszukanie, array(
         'tytul' => get_the_title(),
         'link' => get_the_permalink(),
@@ -40,7 +42,9 @@
         'grupa_produktowa_nazwa' => $grupa_produktowa[0]->post_name,
         // 'img' => $image['sizes']['productSmall'],
         // 'img_basic' => $image['sizes']['productBasic'],
-        'sizes' => $image['sizes']
+        'image1' => $image1['sizes'],
+        'image2' => $image2['sizes'],
+        'image3' => $image3['sizes']
         // 'img_total' => $image
         // 'grupa_produktowa-total' => $grupa_produktowa[0]
       ));

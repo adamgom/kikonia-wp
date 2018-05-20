@@ -47,9 +47,9 @@
         <i onclick="closeProductDetails()" class="fa fa-window-close fa-2x search-overlay__close" aria-hidden="true"></i>
       </div>
     </div>
-    <!-- <div class="container">
-      <div id="search-overlay__results"></div>
-    </div> -->
+    <div class="container">
+      <div id="search-overlay__gallery"></div>
+    </div>
   </div>
 
 <?php

@@ -1,6 +1,6 @@
 // var $ = require('jquery');
-require('./modules/test');
-require('./modules/search');
+// require('./modules/test');
+// require('./modules/search');
 
 // function selektor() {
 //   console.log('hi');
