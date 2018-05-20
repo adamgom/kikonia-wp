@@ -1,6 +1,6 @@
 <?php
   get_header();
-  echo '<div class="content">';
+  echo '<div class="content wrapper">';
 ?>
 formatka strony - strona główna</br>
 =========================</br></br>

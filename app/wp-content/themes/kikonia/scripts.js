@@ -1,12 +1,14 @@
 // zmienne globalne
 var $ = jQuery;
-var showProducts = $(".showProducts");
-var opd = $(".openProductDetails");
-var spd = $(".showProductDetails");
-var sgal = $("#search-overlay__gallery");
+var b = $("body");
+var sp = $("#showProducts");
+var opd = $("#openProductDetails");
+var spd = $("#showProductDetails");
+var spdi = $("#showProductDetailsImages");
 var JSONdata = [];
 var JSONdata_filter = [];
 var inRow = 4;
+var selectedProduct = [];
 
 noData('wczytywanie danych');
 
@@ -17,6 +19,13 @@ $.getJSON('http://localhost/kikonia-wp/app/wp-json/kikonia/produkty', function(d
   this.productsShow(this.JSONdata);
 }.bind(this));
 
+// brak danych
+function noData(info) {
+  this.sp.html(`
+  <div class="content__type_group content__type_group--no_data">
+  <h1> ${info} </h1></div>`);
+}
+
 // filterowanie danych zgodnie z wyborem
 function selektor(IDcatch) {
   this.JSONdata_filter = [];
@@ -24,25 +33,12 @@ function selektor(IDcatch) {
     if (this.JSONdata[i].grupa_produktowa_ID == IDcatch) { this.JSONdata_filter.push(this.JSONdata[i]); }
   }
   
-  if (JSONdata_filter.length > 0 ) { this.productsShow(this.JSONdata_filter); } else { this.noData('brak danych'); }
+  if (JSONdata_filter.length) { this.productsShow(this.JSONdata_filter); } else { this.noData('brak danych'); }
 }
 
-// brak danych
-function noData(info) {
-  this.showProducts.html(`
-    <div class="content__type-group">
-      <a class="content__type-item-link" href="#">  
-        <div class="content__type-item">
-           <h1> ${info} </h1>
-        </div>
-      </a>
-    </div>
-  `);
-}
-
-// wywietlanie danych
+// wyśietlanie danych
 function productsShow(dane) {
-  var matter = '';
+  var PSmatter = '';
   var counterInRow = 0;
   var interval = 0;
   var productNumber = 0;
@@ -62,74 +58,51 @@ function productsShow(dane) {
 
   for (var i = 0 ; i < rows + 1 ; i++) {
     for (var j = counterInRow ; j < counterInRow + interval ; j++ ) {
-      matter += `
-      <div onclick="openProductDetails(` + dane[j].id_produktu + `)" class="content__type-item">
-        <img class="content__type-item-img" src="` + dane[j].image1.productSmall + `" alt="">
-        <span class="content__type-item-title">` + dane[j].tytul +  `</span>
+      PSmatter += `
+      <div onclick="openProductDetails(` + dane[j].id_produktu + `)" class="content__type_item">
+        <img class="content__type_item--img" src="` + dane[j].image1.productSmall + `" alt="">
+        <span class="content__type_item--title">` + dane[j].tytul +  `</span>
       </div>` 
     }
 
     counterInRow += this.inRow;
     if (counterInRow + interval > productNumber) {interval = rest;}
-    if (i < rows) {matter += '</div><div class="row">';}
+    if (i < rows) {PSmatter += '</div><div class="row row--show_products">';}
   }
 
-  this.showProducts.html(' <div class="content__type-group"><div class="row">' + matter + '</div></div> ');
+  this.sp.html('<div class="row row--show_products">' + PSmatter + '</div>');
 }
 
-var selectedProduct;
-
 function openProductDetails(ID) {
-
   for (var i = 0 ; i < this.JSONdata_filter.length ; i++ ) {
     if (JSONdata_filter[i].id_produktu == ID) {
       selectedProduct = this.JSONdata_filter[i];
     }
   }
 
-  this.opd.addClass("search-overlay--active");
+  this.opd.addClass("product-details--active");
   productDetail(selectedProduct);
+  // this.b.addClass("body-no-scroll");
 }
 
 function closeProductDetails() {
-  this.opd.removeClass("search-overlay--active");
+  this.opd.removeClass("product-details--active");
+  // this.b.removeClass("body-no-scroll");
+  this.spd.html('');
+  this.spdi.html('');
 }
 
 function productDetail(sp) {
   var matter = `<h1> ${sp.tytul} </h1>`;
-  var gallery = '';
-
-  imageFull(sp.image1.large);
+  var images = `<img src=" ${sp.image1.large} " alt="">`;
 
   if (sp.image2 != null) {
-    matter += `<img src=" ${sp.image2.large} " alt="">`;
-    gallery = `
-      <img
-        onclick="imageFull(' ${sp.image1.large} ')"
-        src=" ${sp.image1.thumbnail} "
-        alt="">
-      <img
-        onclick="imageFull(' ${sp.image2.large} ')"
-        src=" ${sp.image2.thumbnail} "
-        alt="">
-    `;
+    images += `<img src=" ${sp.image2.large} " alt="">`;
   }
   if (sp.image3 != null) {
-    matter += `<img src=" ${sp.image3.large} " alt="">`;
-    gallery += `
-      <img
-        onclick="imageFull(' ${sp.image3.large} ')"
-        src=" ${sp.image3.thumbnail} "
-        alt="">
-    `;
+    images += `<img src=" ${sp.image3.large} " alt="">`;
   }
-  
-
-  function imageFull(full) {
-    matter += `<img src=" ${full} " alt="">`;
-  }
-
   this.spd.html(matter);
-  this.sgal.html(gallery);
+  this.spdi.html(images);
 }
 

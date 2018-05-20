@@ -1,70 +1,16 @@
 .row{
-  margin-bottom: 25px;
-  
   @mixin clearfix;
-
-  &__1 {
-    float: left;
-    width: 8%;
-  }
-
-  &__2 {
-    float: left;
-    width: 16%;
-  }
-
-  &__4 {
-    float: left;
-    width: 33%;
-  }
-
-  &__8 {
-    float: left;
-    width: 66%;
-  }
-
-  &__10 {
-    float: left;
-    width: 84%;
-  }
-
-  &__11 {
-    float: left;
-    width: 92%;
+  &--show_products {
+    padding-bottom: 25px;
   }
 }
 
 .col {
-
   @mixin clearfix;
-  
-  &__1 {
-    float: left;
-    width: 8%;
-  }
-
-  &__2 {
-    float: left;
-    width: 16%;
-  }
-
-  &__4 {
-    float: left;
-    width: 33%;
-  }
-
-  &__8 {
-    float: left;
-    width: 66%;
-  }
-
-  &__10 {
-    float: left;
-    width: 84%;
-  }
-
-  &__11 {
-    float: left;
-    width: 92%;
-  }
+  &__1 {width: 8%; float: left;}
+  &__2 {width: 16%; float: left;}
+  &__4 {width: 33%; float: left;}
+  &__8 {width: 66%; float: left;}
+  &__10 {width: 84%; float: left;}
+  &__11 {width: 92%; float: left;}
 }

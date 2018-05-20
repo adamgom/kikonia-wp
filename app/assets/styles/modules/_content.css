@@ -1,31 +1,39 @@
 .content {
+  background-color: rgb(216, 176, 216);
+  color: red;
+
   &__type {
-    &-group {
-      padding-left: 0;
+    &_group {
       text-align: center;
-      padding: 10px 0 30px 0;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      &--no_data {
+        color: green;
+      }
+
     }
 
-    &-item {
+    &_item {
       padding-bottom: 15px;
       color: green;
       display: inline-block;
       position: relative;
       cursor: pointer;
 
-      &-title {
+      &--img {
+        width: 80px;
+        display: block;
+        border-radius: 10px 10px 0 0;
+      }
+      
+      &--title {
         position: absolute;
         background-color: grey;
         color: orange;
         transform: translateX(-50%);
         border-radius: 0 0 10px 10px;
         width: 100%;
-      }
-
-      &-img {
-        width: 80px;
-        display: block;
-        border-radius: 10px 10px 0 0;
       }
     }
   }
