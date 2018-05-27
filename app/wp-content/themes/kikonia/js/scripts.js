@@ -82,14 +82,12 @@ function openProductDetails(ID) {
 
   this.opd.addClass("product-details--active");
   productDetail(selectedProduct);
-  // this.b.addClass("body-no-scroll");
+  this.b.addClass("body-no-scroll");
 }
 
 function closeProductDetails() {
   this.opd.removeClass("product-details--active");
-  // this.b.removeClass("body-no-scroll");
-  this.spd.html('');
-  this.spdi.html('');
+  this.b.removeClass("body-no-scroll");
 }
 
 function productDetail(sp) {

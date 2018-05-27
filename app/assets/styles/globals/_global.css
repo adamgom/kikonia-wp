@@ -1,6 +1,7 @@
 body {
   font-family: 'Roboto', sans-serif;
   color: orange;
+  /* position: relative; */
 }
 
 img {
@@ -10,5 +11,9 @@ img {
 
 ul {
   list-style-type: none;
+}
+
+.fixed {
+  position: fixed;
 }
 

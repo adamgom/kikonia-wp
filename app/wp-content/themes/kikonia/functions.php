@@ -9,7 +9,9 @@
   function kikonia_files() {
     // wp_enqueue_style('styles', get_theme_file_uri('/styles/styles.css'), NULL, '1.0', true);
     wp_enqueue_style('styles', get_stylesheet_uri('/style.css'), NULL, microtime());
-    wp_enqueue_script( 'js', get_theme_file_uri('/scripts.js'), array('jquery'), microtime(), true);
+    wp_enqueue_script('js', get_theme_file_uri('/js/scripts.js'), array('jquery'), microtime(), true);
+    wp_enqueue_script('slick', get_theme_file_uri('/js/slick/slick.min.js'), NULL, '1.0', true);
+    wp_enqueue_script('slick_set', get_theme_file_uri('/js/slick/slick_set.js'), array('jquery'), microtime(), true);
     wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
     // wp_enqueue_script( 'js', get_theme_file_uri('/scripts.js'), NULL, microtime(), true);
   }
@@ -20,6 +22,7 @@
     add_theme_support( 'title-tag' );
     add_image_size( 'productBasic', 400, 300, false );
     add_image_size( 'productSmall', 200, 150, true );
+    add_image_size( 'carouselImg', 1500, 500, true );
   }
 
   add_action( 'after_setup_theme', 'kikonia_features' );

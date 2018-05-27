@@ -18,3 +18,7 @@
 @import "modules/_row_col";
 @import "modules/_search";
 @import "modules/_select";
+@import "modules/_carousel";
+
+/* slick*/
+@import "slick/_slick";

@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-  <div class="content">
+  <div class="content wrapper">
   Materiały - formatka strony </br></br>
     <?php
       echo "Page temlpate";

@@ -3,7 +3,7 @@
   <head>
     <?php wp_head(); ?>
   </head>
-  <body>
+  <body <?php body_class(); ?>>
     <div class="header wrapper">
       <div class="row">
         <div class="row__4 header__logo">
@@ -17,7 +17,11 @@
         <h1>Header</h1>
       </div>
     </div>
- 
+  
+    <div class="header wrapper menu">
+      <?php  require get_theme_file_path('/inc/carousel.php'); ?>
+    </div>
+
     <div class="header wrapper menu">
       <ul class="menu__list-group">
         <li class="menu__list-item"><a href=" <?php echo site_url('/'); ?> ">Home page</a></li>

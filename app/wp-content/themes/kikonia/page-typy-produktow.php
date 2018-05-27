@@ -35,7 +35,19 @@
 <!-- galeria produktów JS -->
   <div id="showProducts" class="content wrapper content__type_group"></div>
 
+<!-- wybrany produkt -->
+<div id="openProductDetails" class="product-details">
+    <div class="row">
+      <div id="showProductDetails" class="col__11">
+      </div>
+      <div class="col__1 product-details__close">
+        <i onclick="closeProductDetails()" class="fa fa-window-close fa-2x product-details__icon" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div id="showProductDetailsImages" class="row">
 
+    </div>
+  </div>
 
 <?php
   get_footer();

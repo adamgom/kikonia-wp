@@ -11,7 +11,7 @@ formatka strony - strona główna</br>
     'title' => 'Tytuł w ramach array - Home Page',
     'subtitle' => 'podtytuł w ramach array - Home Page'
   ));
-
+  
   while (have_posts()) {
     the_post();
 ?>
